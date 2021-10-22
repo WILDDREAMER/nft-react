@@ -13,6 +13,7 @@ const NavBarStyle = styled.div`
     background-color: ${({ theme }) => theme.color.black};
 `
 const Container = styled.div`
+    padding: 0 20px;
     width: 100%;
     height: 100%;
     display: flex;

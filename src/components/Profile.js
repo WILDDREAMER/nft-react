@@ -1,6 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Banner from '../img/banner.png'
+import Banner2 from '../img/banner2.png'
 import Avatar from '../img/avatar.png'
+import LogoLight from '../img/LogoLight.svg'
 import Copy from '../img/copy.svg'
 import Add from '../img/add.svg'
 import styled from "styled-components";
@@ -35,6 +38,7 @@ const BannerStyle = styled.img`
     width: 100%;
     height: 116px;
     object-fit: fill;
+    border-radius: 20px;
 `
 const AvatarContainer = styled.div`
     width: 77px;
@@ -93,6 +97,38 @@ const SelectionContainer = styled(SectionContainer)`
     height: 120px;
 `
 
+const SpecificSearch = styled(SectionContainer)`
+    background: url(${Banner2}) no-repeat 100% 100%;
+    background-position: center center;
+    object-fit: fill;
+    background-size: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+    >*{
+        color: white;
+        font-size: 20px;
+        font-family: "TT Commons Regular";
+    }
+    >p{
+        :not(:first-child){
+            padding-bottom: 10px;
+            margin-top: 10px;
+        }
+    }
+    >img{
+        width: 20px;
+        height: 20px;
+    }
+    a{
+        :not(:first-child){
+            color: ${({ theme }) => theme.color.pink};
+            border-bottom: 1px ${({ theme }) => theme.color.pink} solid;
+        }
+    }
+`
+
 const Profile = ({ user }) => {
     const [selected, setSelected] = useState(2);
     useEffect(() => {
@@ -107,7 +143,7 @@ const Profile = ({ user }) => {
             <UserName>"Hello Jummy"</UserName>
             <AddressContainer>
                 <Address>0x3b38a52998a4b7...</Address>
-                <img onClick={() =>  navigator.clipboard.writeText('0x3b38a52998a4b742c')} src={Copy} alt="" />
+                <img onClick={() => navigator.clipboard.writeText('0x3b38a52998a4b742c')} src={Copy} alt="" />
             </AddressContainer>
             <EditContainer>
                 <Button>Edit Profile</Button>
@@ -115,13 +151,19 @@ const Profile = ({ user }) => {
             </EditContainer>
         </SectionContainer>
         <SelectionContainer>
-            <Button sm onClick= {() => setSelected(0)} selected={(selected === 0)}>On Sale</Button>
-            <Button sm onClick= {() => setSelected(1)} selected={(selected === 1)}>Created</Button>
-            <Button sm onClick= {() => setSelected(2)} selected={(selected === 2)}>Collectibles</Button>
-            <Button sm onClick= {() => setSelected(3)} selected={(selected === 3)}>Liked</Button>
-            <Button sm onClick= {() => setSelected(4)} selected={(selected === 4)}>Following</Button>
-            <Button sm onClick= {() => setSelected(5)} selected={(selected === 5)}>Followers</Button>
+            <Button sm onClick={() => setSelected(0)} selected={(selected === 0)}>On Sale</Button>
+            <Button sm onClick={() => setSelected(1)} selected={(selected === 1)}>Created</Button>
+            <Button sm onClick={() => setSelected(2)} selected={(selected === 2)}>Collectibles</Button>
+            <Button sm onClick={() => setSelected(3)} selected={(selected === 3)}>Liked</Button>
+            <Button sm onClick={() => setSelected(4)} selected={(selected === 4)}>Following</Button>
+            <Button sm onClick={() => setSelected(5)} selected={(selected === 5)}>Followers</Button>
         </SelectionContainer>
+        <SpecificSearch>
+            <Link to="/search"><img src={LogoLight} alt="logo" /></Link>
+            <p>→</p>
+            <p>Search result for</p>
+            <a href="#">3D</a>
+        </SpecificSearch>
     </ProfileStyle>
 }
 

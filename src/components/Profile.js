@@ -103,7 +103,7 @@ const AddressContainer = styled.div`
 
 const Address = styled.p`
     color: white;
-    font-size: 10px;
+    font-size: 12px;
     font-family: "TT Commons Regular";
     opacity: 0.2;
 `

@@ -3,6 +3,7 @@ const BaseColor = {
     pink: "#FF0099",
     input: "rgba(255, 255, 255, 0.06)",
     gradient: "linear-gradient(180deg, #42122F 0%, #271821 100%)",
+    footer: "#212121",
     placeholder: "rgba(255, 255, 255, 0.54)"
 };
 const fontSize = {

@@ -30,9 +30,10 @@ const Main = styled.div`
     align-items: center;
     justify-content: flex-start;
     gap: 10px;
+    width: 80%;
 `
 const SearchBar = styled.input`
-    width: 359px;
+    width: 30%;
     height: 30px;
     background-color: ${({ theme }) => theme.color.input};
     border-radius: 7px;
